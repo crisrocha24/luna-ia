@@ -1,9 +1,23 @@
 
 import string
+import unicodedata
+
+
+def normalizar_texto(texto):
+    texto = texto.lower().strip()
+    texto = texto.translate(str.maketrans("", "", string.punctuation))
+
+    texto = unicodedata.normalize("NFD", texto)
+    texto = "".join(
+        caractere
+        for caractere in texto
+        if unicodedata.category(caractere) != "Mn"
+    )
+
+    return texto
 
 
 def iniciar_luna():
-
     print("=" * 45)
     print("       🌙 OLÁ! EU SOU A LUNA")
     print("=" * 45)
@@ -15,15 +29,17 @@ def iniciar_luna():
     print("\nEu sou sua tutora pessoal de inglês.")
     print("Vamos aprender inglês juntas, passo a passo!")
 
-    resposta = input("\nComo está seu dia hoje? ").strip().lower()
+    resposta = normalizar_texto(
+        input("\nComo está seu dia hoje? ")
+    )
 
-    if resposta in ["ótimo", "otimo", "excelente", "maravilhoso"]:
+    if resposta in ["otimo", "otima", "excelente", "maravilhoso", "maravilhosa"]:
         print("\nQue maravilha! Fico feliz por você! 😊")
 
     elif resposta in ["bem", "bom", "legal"]:
         print("\nQue bom! Vamos aproveitar para aprender inglês!")
 
-    elif resposta in ["mal", "ruim", "péssimo", "pessimo"]:
+    elif resposta in ["mal", "ruim", "pessimo"]:
         print("\nSinto muito. Espero que seu dia melhore! ❤️")
 
     else:
@@ -37,4 +53,3 @@ def iniciar_luna():
 
 if __name__ == "__main__":
     iniciar_luna()
-
