@@ -1,0 +1,30 @@
+
+# Ambiente virtual
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+
+# Configurações e segredos
+.env
+.env.*
+!.env.example
+
+# Modelos de inteligência artificial
+models/
+
+# Dados pessoais e históricos
+user_data/
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# Arquivos do Windows
+Thumbs.db
+Desktop.ini
