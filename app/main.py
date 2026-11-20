@@ -16,39 +16,49 @@ def normalizar_texto(texto):
 
     return texto
 
+def mostrar_menu():
+
+    print("\n" + "=" * 40)
+    print("       🌙 ESCOLA DE INGLÊS DA LUNA")
+    print("=" * 40)
+
+    print("\nO que vamos estudar hoje?")
+
+    print("\n1. Aprender vocabulário")
+    print("2. Fazer um quiz de inglês")
+    print("3. Praticar conversação")
+    print("4. Encerrar aula")
+
+    escolha = input("\nDigite sua opção: ")
+
+    return escolha
+
+
 
 def iniciar_luna():
-    print("=" * 45)
-    print("       🌙 OLÁ! EU SOU A LUNA")
-    print("=" * 45)
 
-    nome = input("\nComo você se chama? ").strip().rstrip(string.punctuation)
+    print("\nOlá! Eu sou a Luna! 🌙")
+    print("Sua tutora pessoal de inglês.")
 
-    print(f"\nPrazer em conhecer você, {nome}!")
+    while True:
 
-    print("\nEu sou sua tutora pessoal de inglês.")
-    print("Vamos aprender inglês juntas, passo a passo!")
+        escolha = mostrar_menu()
 
-    resposta = normalizar_texto(
-        input("\nComo está seu dia hoje? ")
-    )
+        if escolha == "1":
+            print("\n📚 Vamos estudar vocabulário!")
 
-    if resposta in ["otimo", "otima", "excelente", "maravilhoso", "maravilhosa"]:
-        print("\nQue maravilha! Fico feliz por você! 😊")
+        elif escolha == "2":
+            print("\n✏️ Vamos começar um quiz de inglês!")
 
-    elif resposta in ["bem", "bom", "legal"]:
-        print("\nQue bom! Vamos aproveitar para aprender inglês!")
+        elif escolha == "3":
+            print("\n💬 Vamos praticar conversação!")
 
-    elif resposta in ["mal", "ruim", "pessimo"]:
-        print("\nSinto muito. Espero que seu dia melhore! ❤️")
+        elif escolha == "4":
+            print("\nAté nossa próxima aula! Bons estudos! ❤️")
+            break
 
-    else:
-        print("\nEntendi! Obrigada por compartilhar comigo.")
-
-    print("\nNossa expressão de hoje:")
-    print("Hello! = Olá!")
-
-    print("\nAté nossa próxima aula! 🌙")
+        else:
+            print("\nOpção inválida! Escolha uma opção de 1 a 4.")
 
 
 if __name__ == "__main__":
